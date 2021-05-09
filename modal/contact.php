@@ -18,23 +18,23 @@ $php_email = filter_var($php_email, FILTER_SANITIZE_EMAIL);
 if (filter_var($php_email, FILTER_VALIDATE_EMAIL)) {
 
 
-		$php_subject = "Message from contact forum (StephenBunel.com)";
+	$php_subject = "Message from contact forum";
 
-		// To send HTML mail, the Content-type header must be set
-		$php_headers = 'MIME-Version: 1.0' . "\r\n";
-		$php_headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-		$php_headers .= 'From:' . $php_email. "\r\n"; // Sender's Email
-		$php_headers .= 'Cc:' . $php_email. "\r\n"; // Carbon copy to Sender
+	// To send HTML mail, the Content-type header must be set
+	$php_headers = 'MIME-Version: 1.0' . "\r\n";
+	$php_headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+	$php_headers .= 'From:' . $php_email. "\r\n"; // Sender's Email
+	$php_headers .= 'Cc:' . $php_email. "\r\n"; // Carbon copy to Sender
 
-		$php_template = '<div style="padding:20px;">Hello ' . $php_name . ',<br/>'
-		. 'Thank you for contacting us.<br/><br/>'
-		. '<strong style="color:#66B95C; padding-bottom:5px;">Name:</strong>  ' . $php_name . '<br/>'
-		. '<strong style="color:#66B95C; padding-bottom:5px;">Email:</strong>  ' . $php_email . '<br/>'
-		. '<strong style="color:#66B95C; padding-bottom:5px;">Message:</strong>  ' . $php_message;
-		. 'This is a Contact Confirmation mail.'
-		. '<br/>'
-		. 'I will contact you as soon as possible .</div>';
-		$php_sendmessage = "<div style=\"background-color:#ffffff; border-color:66B95C; color:#333;\">" . $php_template . "</div>";
+	$php_template = '<div style="padding:20px;">Hello ' . $php_name . ',<br/>'
+	. 'Thank you for contacting us.<br/><br/>'
+	. '<strong style="color:#66B95C;">Name:</strong>  ' . $php_name . '<br/>'
+	. '<strong style="color:#66B95C;">Email:</strong>  ' . $php_email . '<br/>'
+	. '<strong style="color:#66B95C;">Message:</strong>  ' . $php_message . '<br/><br/>'
+	. 'This is a Contact Confirmation mail.'
+	. '<br/>'
+	. 'We will contact you as soon as possible .</div>';
+	$php_sendmessage = "<div style=\"background-color:#f5f5f5; color:#333;\">" . $php_template . "</div>";
 
 		// message lines should not exceed 70 characters (PHP rule), so wrap it
 		$php_sendmessage = wordwrap($php_sendmessage, 70);
