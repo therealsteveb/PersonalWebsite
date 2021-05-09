@@ -18,7 +18,7 @@ $php_email = filter_var($php_email, FILTER_SANITIZE_EMAIL);
 if (filter_var($php_email, FILTER_VALIDATE_EMAIL)) {
 
 
-		$php_subject = "Message from contact form";
+		$php_subject = "(Contact form) Message from" . $php_name;
 
 		// To send HTML mail, the Content-type header must be set
 		$php_headers = 'MIME-Version: 1.0' . "\r\n";
@@ -26,14 +26,10 @@ if (filter_var($php_email, FILTER_VALIDATE_EMAIL)) {
 		$php_headers .= 'From:' . $php_email. "\r\n"; // Sender's Email
 		$php_headers .= 'Cc:' . $php_email. "\r\n"; // Carbon copy to Sender
 
-		$php_template = '<div style="padding:50px;">Hello ' . $php_name . ',<br/>'
-		. 'Thank you for contacting us.<br/><br/>'
-		. '<strong style="color:#f00a77;">Name:</strong>  ' . $php_name . '<br/>'
-		. '<strong style="color:#f00a77;">Email:</strong>  ' . $php_email . '<br/>'
-		. '<strong style="color:#f00a77;">Message:</strong>  ' . $php_message . '<br/><br/>'
-		. 'This is a Contact Confirmation mail.'
-		. '<br/>'
-		. 'We will contact you as soon as possible .</div>';
+		$php_template = '<div style="padding:50px;"> '
+		. '<strong style="color:#66B95C;">Name:</strong>  ' . $php_name . '<br/>'
+		. '<strong style="color:#66B95C;">Email:</strong>  ' . $php_email . '<br/>'
+		. '<strong style="color:#66B95C;">Message:</strong>  ' . $php_message;
 		$php_sendmessage = "<div style=\"background-color:#f5f5f5; color:#333;\">" . $php_template . "</div>";
 
 		// message lines should not exceed 70 characters (PHP rule), so wrap it
