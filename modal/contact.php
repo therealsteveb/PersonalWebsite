@@ -27,13 +27,13 @@ if (filter_var($php_email, FILTER_VALIDATE_EMAIL)) {
 	$php_headers .= 'Cc:' . $php_email. "\r\n"; // Carbon copy to Sender
 
 	$php_template = '<div style="padding:20px;">Message from ' . $php_name . ',<br/>'
-	. '<br/><br/>'
+	. '<br/>'
 	. '<strong style="color:#66B95C;">Name:</strong>  ' . $php_name . '<br/>'
 	. '<strong style="color:#66B95C;">Email:</strong>  ' . $php_email . '<br/>'
 	. '<strong style="color:#66B95C;">Message:</strong>  ' . $php_message . '<br/><br/>'
 	. 'This is a Contact Confirmation mail.'
 	. '<br/>'
-	. '</div>';
+	. 'We will contact you as soon as possible .</div>';
 	$php_sendmessage = "<div style=\"background-color:#f5f5f5; color:#333;\">" . $php_template . "</div>";
 
 		// message lines should not exceed 70 characters (PHP rule), so wrap it
