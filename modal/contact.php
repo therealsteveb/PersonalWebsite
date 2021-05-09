@@ -26,11 +26,11 @@ if (filter_var($php_email, FILTER_VALIDATE_EMAIL)) {
 		$php_headers .= 'From:' . $php_email. "\r\n"; // Sender's Email
 		$php_headers .= 'Cc:' . $php_email. "\r\n"; // Carbon copy to Sender
 
-		$php_template = '<div style="padding:20px;"> '
-		. '<strong style="color:#66B95C, padding:5px;">Name:</strong>  ' . $php_name . '<br/>'
-		. '<strong style="color:#66B95C;">Email:</strong>  ' . $php_email . '<br/>'
-		. '<strong style="color:#66B95C;">Message:</strong>  ' . $php_message;
-		$php_sendmessage = "<div style=\"background-color:#ffffff; color:#333;\">" . $php_template . "</div>";
+		$php_template = '<div style="padding:20px;"> Message from' . $php_name . '<br/>'
+		. '<strong style="color:#66B95C; padding-bottom:3px;">Name:</strong>  ' . $php_name . '<br/>'
+		. '<strong style="color:#66B95C; padding-bottom:3px;">Email:</strong>  ' . $php_email . '<br/>'
+		. '<strong style="color:#66B95C; padding-bottom:3px;">Message:</strong>  ' . $php_message;
+		$php_sendmessage = "<div style=\"background-color:#ffffff; border-color:66B95C; color:#333;\">" . $php_template . "</div>";
 
 		// message lines should not exceed 70 characters (PHP rule), so wrap it
 		$php_sendmessage = wordwrap($php_sendmessage, 70);
